@@ -12,19 +12,6 @@ from azureml.data.dataset_factory import TabularDatasetFactory
 from azureml.core import Dataset, Datastore
 from azureml.data.datapath import DataPath
 
-# TODO: Create TabularDataset using TabularDatasetFactory
-# Data is located at:
-# "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
-
-web_path = ['https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv']
-ds = Dataset.Tabular.from_delimited_files(path=web_path, separator='\t')
-
-x, y = clean_data(ds)
-
-# TODO: Split data into train and test sets.
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.30) #Train data 70% Test data 30%
-    
-run = Run.get_context()
 
 def clean_data(data):
     # Dict for cleaning data
@@ -73,3 +60,17 @@ def main():
 
 if __name__ == '__main__':
     main()
+    
+# TODO: Create TabularDataset using TabularDatasetFactory
+# Data is located at:
+# "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
+
+web_path = ['https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv']
+ds = Dataset.Tabular.from_delimited_files(path=web_path, separator='\t')
+
+x, y = clean_data(ds)
+
+# TODO: Split data into train and test sets.
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.30) #Train data 70% Test data 30%
+    
+run = Run.get_context()
