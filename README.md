@@ -11,7 +11,7 @@ The dataset contains client's data for a bank marketing campaign. The classifica
 The best performing model Azure AutoML model using MaxAbsScaler XGBoostClassifier with an accuracy of 91.52%.
 
 ## Scikit-learn Pipeline
-There are several main components to AzureML pipeline from data preparation to classification. The raw data ran through clean_data() function where null value rows were dropped and other features were cleaned and categorized. Random Parameter Sampling was applied with --C and --max_iter as its paramters. A hyperdrive configuration was created and fed in the parameter sampler, estimator, primary metric, concurrent runs and total runs. 20 runs ran in total (4 at a time) and the run with best accuracy was the best run.
+There are several main components to AzureML pipeline from data preparation to classification. The raw data ran through clean_data() function where null value rows were dropped and other features were cleaned and categorized. The model chosen was LogisticRegression. A hyperdrive configuration was created and fed in the parameter sampler, estimator, primary metric, concurrent runs and total runs. 20 runs ran in total (4 at a time) and the run with best accuracy was the best run. The parameter sampler chosen was RandomParameterSampling and the early termination policy chosen was BanditPolicy. The Random Parameter Sampling was applied with --C and --max_iter as its paramters. The Bandit Policy has 1 as evaluation interval.
 
 **What are the benefits of the parameter sampler you chose?**
 Hyperparameters tuning is the process of finding the best configuration of hyperparamater that gives the best performance. The benefits are:
