@@ -24,7 +24,7 @@ Hyperparameters tuning is the process of finding the best configuration of hyper
 An early termination policy is used to allow the model to stop looking for the best performance run after certain number of failures. Using early stopping policy increases computational efficiency.
 
 ## AutoML
-For the purpose of AutoML model, the data was divided into train and test model.
+In most runs, Automl had the best model as VotingEnsemble but there was error in running the command 'run.getoutput()'. After upgrading some packages, the best model was then MaxAbsScaler XGBoostClassifier and the command 'run.getoutput()' ran successfully by showing the hyperparameters for the model.
 Some of the hyperparamater involved are base_score=0.5, booster='gbtree', colsample_bylevel=1, colsample_bynode=1
 
 ## Pipeline comparison
